@@ -1,0 +1,162 @@
+#include <stdio.h>
+#include <iostream>
+#include <vector> 
+#include <string> 
+
+using namespace std;
+
+typedef struct ACCOUNT{
+    int accID = 0;
+    int balance = 0; 
+    string name; 
+} ACCOUNT;
+
+vector<ACCOUNT> db;  
+
+void createAccount(void); //Creates a new ACCOUNT instant and appends it to db
+void changeBalance(bool flag); 
+void printAllInfo(void); 
+void printMainMenu(void); 
+void printACCOUNT(ACCOUNT input); 
+
+enum {MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT}; 
+
+int main()
+{
+    int choice = 0; 
+    do {
+        printMainMenu(); 
+        cin >> choice; 
+        switch(choice) {
+            case MAKE:
+                createAccount(); 
+                break; 
+            case DEPOSIT:
+                changeBalance(1); 
+                break; 
+            case WITHDRAW:
+                changeBalance(0);
+                break; 
+            case INQUIRE:
+                printAllInfo(); 
+                break; 
+            case EXIT:
+                break; 
+            default: 
+                cout << "Invalid choice. Please choose again." << endl; 
+                break; 
+        }
+    } while(choice != 5);
+    cout << "See you next time!" << endl; 
+    return 0; 
+}
+
+void createAccount(void)
+{
+    int num = 0; 
+    int balance = 0;
+    string name;  
+    cout << endl; 
+    cout << "Enter account ID: ";
+    cin >> num; 
+    cout << "Enter your name: "; 
+    cin >> name; 
+    cout << "Enter your starting balance: $"; 
+    cin >> balance; 
+    
+    ACCOUNT newAccount = {num, balance, name}; 
+    db.push_back(newAccount); 
+    return; 
+}
+
+void changeBalance(bool flag) {
+    // flag: (1) deposit (0) withdraw
+    int id; 
+    int amount; 
+    int indexDb; 
+    bool found = false; 
+    
+    do {
+        cout << endl; 
+        cout << "**Enter -1 to cancel**" << endl; 
+        cout << "Enter your account ID: "; 
+        cin >> id; 
+        
+        if(id == -1) return; 
+        
+        for(int i = 0; i < db.size(); i++)
+        {
+            if (db[i].accID == id) 
+            {
+                found = true; 
+                indexDb = i; 
+                break; 
+            }
+        }
+        
+        if(!found) cout << "ID not found. Please try again..." << endl; 
+    } while(!found); 
+    
+    cout << "Your current balance is: $" << db[indexDb].balance << endl; 
+    
+    if(flag) {
+        cout << "Enter amount to deposit: $"; 
+        cin >> amount; 
+        db[indexDb].balance += amount;
+        cout << "Deposit completed. Current balance: $" << db[indexDb].balance; 
+        cout << endl; 
+    }
+    else 
+    {
+        bool inputValid = false; 
+        do {
+            cout << "Enter amount to withdraw: $";
+            cin >> amount; 
+            if (amount > db[indexDb].balance)
+            {
+                cout << "Not enough balance. Please re-enter..." << endl << endl; 
+            }
+            else inputValid = true; 
+        } while(!inputValid);
+        db[indexDb].balance -= amount;
+        cout << "Withdrawal completed. Current balance: $" << db[indexDb].balance; 
+        cout << endl; 
+    }
+    return; 
+}
+
+void printAllInfo(void) 
+{
+    for(int i = 0; i < db.size(); i++) {
+        cout << endl; 
+        cout << "Account " << i + 1 << ": " << endl; 
+        printACCOUNT(db[i]); 
+    }
+    return; 
+}
+
+void printMainMenu(void)
+{
+    cout << endl; 
+    cout << "-------Menu-------" << endl; 
+    cout << "1. Create Account" << endl; 
+    cout << "2. Deposit" << endl; 
+    cout << "3. Withdraw" << endl; 
+    cout << "4. Print All Account Information" << endl; 
+    cout << "5. End Program" << endl;
+    cout << "Choice: ";
+    return; 
+}
+
+void printACCOUNT(ACCOUNT input){
+    cout << "  ID: " << input.accID << endl; 
+    cout << "  Name: " << input.name << endl; 
+    cout << "  Balance: $" << input.balance << endl;
+    return; 
+}
+
+
+
+
+
+
