@@ -5,7 +5,7 @@
 using namespace std; 
 
 const int DB_SIZE = 100;
-const char* const LINE = "-------------------------------";
+const char* const LINE = "-------------------------------test";
 
 //System menus 
 enum {MAIN = 0, LOGGEDIN};

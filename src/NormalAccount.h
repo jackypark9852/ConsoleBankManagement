@@ -1,4 +1,4 @@
-#ifndef NORMALACCOUNT_H
+- Inf#ifndef NORMALACCOUNT_H
 #define NORMALACCOUNT_H
 #include "Account.h" 
 

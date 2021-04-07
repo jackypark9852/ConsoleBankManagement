@@ -13,7 +13,7 @@ int main()
 	bool loggedIn = false; 
 	bool Exit = false;
 	int mode = MAIN; 
-
+	
 	while(!Exit)
 	{
 		switch(mode)
