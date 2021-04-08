@@ -2,11 +2,13 @@
 #include "NormalAccount.h" 
 #include "HighCreditAccount.h" 
 #include "Bank.h" 
+#include "BoundCheckPtrArray.h" 
+#include "BoundCheckPtrArray.cpp"
 #include <iostream>
 #include <cstring> 
 
 using namespace std;
-
+/*
 int main()
 {
 	Bank b("Hello Bank");
@@ -85,4 +87,15 @@ int main()
 	}
 	return 0; 
 }
+*/
 
+int main()
+{
+	BoundCheckPtrArray<int> arr(3); 
+	arr[0] = 1; 
+	arr[1] = 2; 
+	arr[2] = 3;
+	arr[3] = 4; 
+	arr.showAllVal();
+	return 0; 
+}
