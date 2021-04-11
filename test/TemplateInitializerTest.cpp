@@ -13,6 +13,7 @@ class stringWrap{
 			strcpy(val, ini); 
 		}
 		
+	
 		stringWrap() {
 			cout << "stringWrap()" << endl; 
 			val = new char[1]; 
