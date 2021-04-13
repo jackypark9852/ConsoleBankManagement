@@ -8,16 +8,23 @@ using namespace std;
 
 int main()
 {
-	try
-	{
-		TypeCheckInput<int> test(100); 
-		test.getInput(); 
+	int input = 0; 
+	while(1) {
+		try
+		{
+			TypeCheckInput<int> test;
+			cout << "Please input an int: "; 
+			input = test.getInput();
+		}
+		catch (TypeCheckInputException &expn)
+		{
+			expn.showExceptionMessage();
+			cout << "Please try again." << endl; 
+			continue; 
+		}
+		break; 
 	}
-	catch (TypeCheckInputException &expn)
-	{
-		expn.showExceptionMessage();
-		exit(1); 
-	}
-	cout << "End of main" << endl; 
+	
+	cout << "You input is: " << input << endl; 
 	return 0; 
 }

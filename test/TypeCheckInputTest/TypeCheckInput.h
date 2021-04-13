@@ -2,18 +2,19 @@
 #define TYPE_CHECK_INPUT_H
 
 #include <iostream> 
+#include <string> 
 
 using namespace std; 
 
 template <class T> 
 class TypeCheckInput{
 	private: 
-		char* inBuff; 
-		bool checkValid(char* buff) const; 
+		string inBuff; 
+		int len; 
+		bool isValidDataType() const; 
 	
 	public: 
-		TypeCheckInput(size_t len);//throw (TypeCheckInputException);
-		~TypeCheckInput(); 
+		TypeCheckInput();//throw (TypeCheckInputException);
 		T getInput();//throw (TypeCheckInputException); 
 };
 
