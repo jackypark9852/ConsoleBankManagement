@@ -1,9 +1,11 @@
-#include "Account.h" 
-#include "NormalAccount.h" 
-#include "HighCreditAccount.h" 
+#include "c_acnt/Account.h" 
+#include "c_acnt/NormalAccount.h" 
+#include "c_acnt/HighCreditAccount.h" 
+#include "c_ptr_arr/BoundCheckPtrArray.h" 
+#include "c_ptr_arr/BoundCheckPtrArray.cpp"
+
 #include "Bank.h" 
-#include "BoundCheckPtrArray.h" 
-#include "BoundCheckPtrArray.cpp"
+
 #include <iostream>
 #include <cstring> 
 

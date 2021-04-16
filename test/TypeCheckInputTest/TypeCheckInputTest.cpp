@@ -1,12 +1,12 @@
-#include "TypeCheckInput.h" 
+#include "headers/TypeCheckInput.h" 
 #include "TypeCheckInput.cpp" 
-#include "TypeCheckInputException.h"
+#include "headers/TypeCheckInputException.h"
 
 #include <iostream> 
 
 using namespace std; 
 
-int main()
+/*int main()
 {
 	int input = 0; 
 	while(1) {
@@ -27,4 +27,4 @@ int main()
 	
 	cout << "You input is: " << input << endl; 
 	return 0; 
-}
+}*/

@@ -1,7 +1,7 @@
 #include "Bank.h" 
 #include "BANKSYS.h"
-#include "NormalAccount.h" 
-#include "HighCreditAccount.h" 
+#include "c_acnt/NormalAccount.h" 
+#include "c_acnt/HighCreditAccount.h" 
 
 #include <cstring> 
 #include <string> 

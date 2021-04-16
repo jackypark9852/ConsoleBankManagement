@@ -1,9 +1,9 @@
 #ifndef BANK_H 
 #define BANK_H 
 
-#include "Account.h"
-#include "NormalAccount.h"
-#include "HighCreditAccount.h"
+#include "c_acnt/Account.h"
+#include "c_acnt/NormalAccount.h"
+#include "c_acnt/HighCreditAccount.h"
 #include "BANKSYS.h"
 
 class Bank {
