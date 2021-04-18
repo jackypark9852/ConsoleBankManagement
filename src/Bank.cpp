@@ -2,6 +2,7 @@
 #include "BANKSYS.h"
 #include "c_acnt/NormalAccount.h" 
 #include "c_acnt/HighCreditAccount.h" 
+#include "c_type_check_input/headers/TypeCheckInput.h"
 
 #include <cstring> 
 #include <string> 
@@ -91,10 +92,27 @@ bool Bank::login()
 	
 	int uAccountID; 
 	Account* foundAccountPtr; 
+	TypeCheckInput<int> intCheck; 
+
 	cout << "Login" << endl; 
 	cout << LINE << endl; 
-	cout << "Enter your account ID: "; 
+	
 	cin >> uAccountID; 
+	while(!)
+		{
+		try
+		{
+			cout << "Enter your account ID: "; 
+			uAccount = intCheck.getInput(); 
+			break; 
+		}
+		catch(InputTypeException & expn)
+		{
+			cout << "[Please input an interger]" << endl; 
+
+		}
+	}
+
 	foundAccountPtr = findAccount(uAccountID);
 	
 	if(foundAccountPtr == NULL) 
